@@ -314,17 +314,19 @@ if (fs.existsSync(DIST_DIR)) {
   });
 }
 
-// Start Server
-const server = app.listen(PORT, () => {
-  console.log(`\n================================================================`);
-  console.log(`  Dikaiosune Mega Project Full-Stack Server Running`);
-  console.log(`  Port: ${PORT}`);
-  console.log(`  URL: http://localhost:${PORT}`);
-  console.log(`  Public API: http://localhost:${PORT}/api/inquiries`);
-  console.log(`  Admin API: http://localhost:${PORT}/api/admin/inquiries`);
-  console.log(`  Admin Recipient Config: Private (Server-Side Only)`);
-  console.log(`================================================================\n`);
-});
+// Start Server locally (skip in serverless Vercel environment)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n================================================================`);
+    console.log(`  Dikaiosune Mega Project Full-Stack Server Running`);
+    console.log(`  Port: ${PORT}`);
+    console.log(`  URL: http://localhost:${PORT}`);
+    console.log(`  Public API: http://localhost:${PORT}/api/inquiries`);
+    console.log(`  Admin API: http://localhost:${PORT}/api/admin/inquiries`);
+    console.log(`  Admin Recipient Config: Private (Server-Side Only)`);
+    console.log(`================================================================\n`);
+  });
+}
 
 export default app;
 

@@ -90,12 +90,6 @@ export function saveInquiry(data) {
   return newEntry;
 }
 
-  inquiries.push(newEntry);
-  fs.writeFileSync(INQUIRIES_FILE, JSON.stringify(inquiries, null, 2), 'utf-8');
-
-  return newEntry;
-}
-
 /**
  * Update inquiry status
  * @param {string} id - Inquiry ID
