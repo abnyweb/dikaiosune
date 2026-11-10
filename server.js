@@ -52,17 +52,24 @@ app.get('/api/health', (req, res) => {
  */
 app.post('/api/inquiries', async (req, res) => {
   try {
-    const { name, email, org, phone, category, track, role, message, note, source } = req.body;
+    const { name, fullName, email, org, organization, phone, category, track, role, message, note, source } = req.body;
+
+    const resolvedName = (name || fullName || '').trim();
+    const resolvedEmail = (email || '').trim();
+    const resolvedOrg = (org || organization || '').trim();
+    const resolvedPhone = (phone || '').trim();
+    const resolvedCategory = category || track || role || 'General Partnership';
+    const resolvedMessage = (message || note || '').trim();
 
     // Validation
-    if (!name || typeof name !== 'string' || name.trim().length === 0) {
+    if (!resolvedName) {
       return res.status(400).json({
         success: false,
         error: 'Full Name is required.'
       });
     }
 
-    if (!email || typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+    if (!resolvedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(resolvedEmail)) {
       return res.status(400).json({
         success: false,
         error: 'A valid email address is required.'
@@ -73,12 +80,12 @@ app.post('/api/inquiries', async (req, res) => {
 
     // 1. Save entry to persistent JSON database
     const savedInquiry = saveInquiry({
-      name,
-      email,
-      org,
-      phone,
-      category: category || track || role,
-      message: message || note,
+      name: resolvedName,
+      email: resolvedEmail,
+      org: resolvedOrg,
+      phone: resolvedPhone,
+      category: resolvedCategory,
+      message: resolvedMessage,
       source: source || 'Website Form',
       ip: clientIp
     });
