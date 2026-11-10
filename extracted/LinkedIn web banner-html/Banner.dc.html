@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>LinkedIn / web banner</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<style>body{margin:0}</style>
+</helmet>
+<div style="width: 1584px; height: 396px; position: relative; overflow: hidden; background: #F6F1E7; font-family: Inter, Arial, sans-serif; color: #1F2420">
+  <svg width="1584" height="396" viewBox="0 0 1584 396" aria-hidden="true" style="position: absolute; inset: 0">
+    <path d="M900 396 Q1100 250 1300 300 T1584 240 L1584 396Z" fill="#A9BFA0"></path>
+    <path d="M980 396 Q1180 310 1380 340 T1584 320 L1584 396Z" fill="#6E8F64"></path>
+    <circle cx="1400" cy="130" r="64" fill="#E2C27D"></circle>
+    <rect x="1120" y="230" width="170" height="90" fill="#1E3A2B"></rect>
+    <path d="M1110 234 L1205 180 L1300 234Z" fill="#8B4A2B"></path>
+    <rect x="1192" y="270" width="26" height="50" fill="#C08A2E"></rect>
+  </svg>
+  <div style="position: absolute; left: 520px; top: 70px; width: 560px; display: flex; flex-direction: column; gap: 14px">
+    <div style="font-size: 15px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; color: #8B4A2B">The Dikaiosune Mega Project</div>
+    <div style="font-family: Fraunces, Georgia, serif; font-weight: 600; font-size: 50px; line-height: 1.05; color: #1E3A2B">Grown with justice. <span style="font-style: italic; color: #8B4A2B">Taught with care.</span></div>
+    <div style="font-size: 19px; line-height: 1.5; color: #5B6359">An integrated farm and a veterinary university on one living campus · Barabanki, Uttar Pradesh</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1584,"height":396}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
