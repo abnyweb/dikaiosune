@@ -15,11 +15,9 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
   }, []);
 
   const navLinks = [
-    { name: 'Vision', href: '#vision' },
-    { name: 'Integrated farm', href: '#farm' },
-    { name: 'University', href: '#university' },
-    { name: 'Research', href: '#research' },
-    { name: 'Master plan', href: '#masterplan' },
+    { name: 'Services', href: '#services' },
+    { name: 'Research & Study', href: '#research' },
+    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' }
   ];
 

@@ -3,7 +3,8 @@ import { farmUnits } from '../data/projectData';
 
 export default function FarmSection() {
   return (
-    <section id="farm" className="py-24 bg-cream border-b border-line">
+    <section id="services" className="py-24 bg-cream border-b border-line relative">
+      <div id="farm" className="absolute -top-24 pointer-events-none" />
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
         
         {/* Section Header */}

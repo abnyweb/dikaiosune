@@ -6,7 +6,8 @@ export default function VisionSection() {
   const activeStep = loopSteps[activeStepIndex];
 
   return (
-    <section id="vision" className="py-24 bg-paper border-b border-line">
+    <section id="about" className="py-24 bg-paper border-b border-line relative">
+      <div id="vision" className="absolute -top-24 pointer-events-none" />
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">

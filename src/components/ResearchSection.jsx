@@ -3,7 +3,8 @@ import { researchAreas } from '../data/projectData';
 
 export default function ResearchSection() {
   return (
-    <section id="research" className="py-24 bg-cream border-b border-line">
+    <section id="research" className="py-24 bg-cream border-b border-line relative">
+      <div id="research-study" className="absolute -top-24 pointer-events-none" />
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
         
         {/* Section Header */}
