@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield } from 'lucide-react';
+import whiteLogo from '../assets/Dikaiosune-Logo-White.webp';
 
 export default function Footer({ onOpenAdmin }) {
   const footerLinks = [
@@ -22,9 +23,15 @@ export default function Footer({ onOpenAdmin }) {
             title="Dikaiosune — Main Website"
           >
             <img
-              src="/Dikaiosune-Logo-White.webp"
+              src={whiteLogo}
               alt="DIKAIOSUNE.IN"
               className="h-[24px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+              onError={(e) => {
+                if (!e.currentTarget.dataset.fallback) {
+                  e.currentTarget.dataset.fallback = 'true';
+                  e.currentTarget.src = '/Dikaiosune-Logo-White.webp';
+                }
+              }}
             />
           </a>
 

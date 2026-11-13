@@ -317,9 +317,6 @@ export default function AdminDashboard({ onExit }) {
                 />
                 <Lock size={16} className="absolute left-3.5 top-3.5 text-gray-400" />
               </div>
-              <div className="text-[11px] text-gray-400 mt-1 flex justify-between">
-                <span>Default setup code: <code>dikaiosune2026</code></span>
-              </div>
             </div>
 
             <button
@@ -329,16 +326,6 @@ export default function AdminDashboard({ onExit }) {
             >
               <Shield size={16} />
               <span>{isAuthenticating ? 'Verifying Credentials...' : 'Authenticate & Enter'}</span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => {
-                setPasswordInput('dikaiosune2026');
-              }}
-              className="w-full py-2 rounded-xl text-xs text-harvest hover:text-harvest-dark font-medium border border-harvest/30 hover:bg-harvest/5 transition"
-            >
-              Fill Demo Passcode (dikaiosune2026)
             </button>
           </form>
 

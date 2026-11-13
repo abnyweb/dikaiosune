@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import whiteLogo from '../assets/Dikaiosune-Logo-White.webp';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,20 +23,32 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300 font-poppins">
-      <nav className={`bg-[#354048] text-white transition-all duration-300 ${isScrolled ? 'shadow-xl py-3' : 'py-4'}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 font-poppins">
+      <nav
+        className={`w-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-[#16221A]/92 backdrop-blur-md shadow-lg py-3.5 border-b border-white/10'
+            : 'bg-transparent py-5 sm:py-6 border-b border-transparent'
+        }`}
+      >
         <div className="max-w-[1280px] mx-auto px-6 sm:px-8 flex items-center justify-between gap-6">
           
-          {/* Main Logo - Exact official White webp wordmark from dikaiosune.in */}
+          {/* Main Logo - Exact official White wordmark from dikaiosune.in */}
           <a
             href="https://dikaiosune.in/"
             className="flex items-center group shrink-0"
             title="Dikaiosune — Return to Main Site"
           >
             <img
-              src="/Dikaiosune-Logo-White.webp"
+              src={whiteLogo}
               alt="DIKAIOSUNE.IN"
               className="h-[28px] sm:h-[32px] w-auto max-w-[220px] object-contain transition-transform duration-200 group-hover:scale-105"
+              onError={(e) => {
+                if (!e.currentTarget.dataset.fallback) {
+                  e.currentTarget.dataset.fallback = 'true';
+                  e.currentTarget.src = '/Dikaiosune-Logo-White.webp';
+                }
+              }}
             />
           </a>
 
@@ -53,7 +66,11 @@ export default function Navbar() {
                         }
                       : undefined
                   }
-                  className="whitespace-nowrap hover:text-white/80 transition-colors duration-200 py-1"
+                  className={`whitespace-nowrap transition-colors duration-200 py-1 ${
+                    link.isCurrent
+                      ? 'text-white border-b-2 border-harvest-gold font-bold'
+                      : 'hover:text-white/80'
+                  }`}
                   aria-current={link.isCurrent ? 'page' : undefined}
                 >
                   {link.name}
@@ -67,7 +84,7 @@ export default function Navbar() {
             {/* Get in Touch Button styled identically to dikaiosune.in */}
             <a
               href="https://dikaiosune.in/#contact"
-              className="hidden sm:inline-flex items-center justify-center border-2 border-white hover:border-white rounded-full text-white hover:bg-white hover:text-[#354048] font-poppins font-medium text-sm px-6 py-2 transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap leading-normal"
+              className="hidden sm:inline-flex items-center justify-center border-2 border-white hover:border-white rounded-full text-white hover:bg-white hover:text-[#16221A] font-poppins font-medium text-sm px-6 py-2 transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap leading-normal"
             >
               Get in Touch
             </a>
@@ -85,7 +102,7 @@ export default function Navbar() {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-white/15 bg-[#2B353D] px-6 pt-4 pb-6 space-y-2 mt-3 animate-fadeIn">
+          <div className="lg:hidden border-t border-white/15 bg-[#16221A]/95 backdrop-blur-xl px-6 pt-4 pb-6 space-y-2 mt-3 rounded-b-2xl shadow-2xl mx-3 animate-fadeIn">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -109,7 +126,7 @@ export default function Navbar() {
               <a
                 href="https://dikaiosune.in/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-center w-full border-2 border-white text-white font-medium py-2.5 rounded-full text-sm hover:bg-white hover:text-[#354048] transition"
+                className="block text-center w-full border-2 border-white text-white font-medium py-2.5 rounded-full text-sm hover:bg-white hover:text-[#16221A] transition"
               >
                 Get in Touch
               </a>

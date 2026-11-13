@@ -14,7 +14,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const DIST_DIR = path.join(__dirname, 'dist');
 const OUTBOX_DIR = path.join(__dirname, 'data', 'outbox');
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'dikaiosune2026';
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'diKAISU@PRavd12!!@@';
 
 // Middleware
 app.use(cors());

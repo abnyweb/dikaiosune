@@ -3,7 +3,7 @@ import HeroArtwork from './HeroArtwork';
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-b from-forest via-[#224230] to-forest-dark text-cream pt-20 pb-0 overflow-hidden border-b border-forest-light/40">
+    <section className="relative bg-gradient-to-b from-forest via-[#224230] to-forest-dark text-cream pt-28 sm:pt-36 pb-0 overflow-hidden border-b border-forest-light/40">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-end">
           
