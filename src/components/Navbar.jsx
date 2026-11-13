@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BrandSeal from './BrandSeal';
-import { Menu, X, Shield } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
-export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
+export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,8 +23,8 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
 
   return (
     <header className="sticky top-0 z-50 transition-all duration-300 font-poppins">
-      <nav className={`bg-forest text-white transition-all duration-300 ${isScrolled ? 'shadow-xl py-3' : 'py-4'}`}>
-        <div className="max-w-[1240px] mx-auto px-6 sm:px-10 flex items-center justify-between gap-6">
+      <nav className={`bg-[#354048] text-white transition-all duration-300 ${isScrolled ? 'shadow-xl py-3' : 'py-4'}`}>
+        <div className="max-w-[1280px] mx-auto px-6 sm:px-8 flex items-center justify-between gap-6">
           
           {/* Main Logo - Exact official White webp wordmark from dikaiosune.in */}
           <a
@@ -35,13 +34,13 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
           >
             <img
               src="/Dikaiosune-Logo-White.webp"
-              alt="Dikaiosune"
-              className="h-[27px] sm:h-[30px] w-auto max-w-[210px] object-contain transition-transform duration-300 group-hover:scale-105"
+              alt="DIKAIOSUNE.IN"
+              className="h-[28px] sm:h-[32px] w-auto max-w-[220px] object-contain transition-transform duration-200 group-hover:scale-105"
             />
           </a>
 
           {/* Desktop Nav Links - Styled identically to dikaiosune.in */}
-          <ul className="hidden lg:flex items-center gap-[30px] text-[15px] font-medium uppercase tracking-[0.02em]">
+          <ul className="hidden lg:flex items-center gap-7 xl:gap-8 text-[15px] font-semibold uppercase tracking-[0.03em] text-white">
             {navLinks.map((link) => (
               <li key={link.name} className="shrink-0">
                 <a
@@ -54,11 +53,7 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
                         }
                       : undefined
                   }
-                  className={`whitespace-nowrap transition-colors duration-200 py-1 ${
-                    link.isCurrent
-                      ? 'text-white font-semibold border-b-2 border-harvest-gold pb-0.5'
-                      : 'text-white/85 hover:text-white'
-                  }`}
+                  className="whitespace-nowrap hover:text-white/80 transition-colors duration-200 py-1"
                   aria-current={link.isCurrent ? 'page' : undefined}
                 >
                   {link.name}
@@ -67,28 +62,19 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
             ))}
           </ul>
 
-          {/* CTA Button, Admin Quick Access & Mobile Hamburger Toggle */}
+          {/* CTA Button & Mobile Hamburger Toggle */}
           <div className="flex items-center gap-3 shrink-0">
-            <button
-              onClick={onOpenAdmin}
-              className="hidden md:inline-flex items-center gap-1.5 border border-harvest-gold/40 hover:border-harvest-gold text-harvest-gold hover:text-white px-3 py-1.5 rounded-full text-xs font-semibold transition"
-              title="Executive Admin Dashboard"
-            >
-              <Shield size={13} />
-              <span>Admin</span>
-            </button>
-
             {/* Get in Touch Button styled identically to dikaiosune.in */}
             <a
               href="https://dikaiosune.in/#contact"
-              className="hidden sm:inline-block border border-white/70 hover:border-white text-white hover:bg-white hover:text-forest font-poppins font-normal text-sm px-6 py-2 rounded-full transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap leading-normal"
+              className="hidden sm:inline-flex items-center justify-center border-2 border-white hover:border-white rounded-full text-white hover:bg-white hover:text-[#354048] font-poppins font-medium text-sm px-6 py-2 transition-all duration-200 shadow-sm cursor-pointer whitespace-nowrap leading-normal"
             >
               Get in Touch
             </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-white hover:bg-forest-light focus:outline-none cursor-pointer"
+              className="lg:hidden p-2 rounded-lg text-white hover:bg-white/10 focus:outline-none cursor-pointer"
               aria-label="Toggle Navigation Menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,7 +85,7 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
 
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden border-t border-forest-light/60 bg-forest-dark px-6 pt-4 pb-6 space-y-2 mt-3 animate-fadeIn">
+          <div className="lg:hidden border-t border-white/15 bg-[#2B353D] px-6 pt-4 pb-6 space-y-2 mt-3 animate-fadeIn">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -113,32 +99,20 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
                       }
                     : () => setMobileMenuOpen(false)
                 }
-                className={`block px-3 py-2.5 rounded-lg text-sm uppercase tracking-wider font-medium transition ${
-                  link.isCurrent
-                    ? 'bg-forest-light text-harvest-gold font-semibold'
-                    : 'text-white/90 hover:bg-forest hover:text-white'
-                }`}
+                className="block px-3 py-2.5 rounded-lg text-sm uppercase tracking-wider font-semibold text-white hover:bg-white/10 transition"
                 aria-current={link.isCurrent ? 'page' : undefined}
               >
                 {link.name}
               </a>
             ))}
-            <div className="pt-3 border-t border-forest-light/40 space-y-2">
+            <div className="pt-3 border-t border-white/15 space-y-2">
               <a
                 href="https://dikaiosune.in/#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="block text-center w-full border border-white/70 text-white font-medium py-2.5 rounded-full text-sm hover:bg-white hover:text-forest transition"
+                className="block text-center w-full border-2 border-white text-white font-medium py-2.5 rounded-full text-sm hover:bg-white hover:text-[#354048] transition"
               >
                 Get in Touch
               </a>
-
-              <button
-                onClick={() => { setMobileMenuOpen(false); onOpenAdmin(); }}
-                className="w-full py-2.5 rounded-full border border-harvest-gold/40 text-harvest-gold text-xs font-semibold flex items-center justify-center gap-1.5"
-              >
-                <Shield size={13} />
-                <span>Executive Admin Portal</span>
-              </button>
             </div>
           </div>
         )}

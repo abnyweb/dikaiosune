@@ -48,10 +48,11 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['Fraunces', 'Georgia', 'serif'],
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Manrope', 'Poppins', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Manrope', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
+        serif: ['Fraunces', 'Georgia', 'serif'],
         hindi: ['"Noto Sans Devanagari"', 'sans-serif'],
       },
       borderRadius: {
