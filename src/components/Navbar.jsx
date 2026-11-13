@@ -15,10 +15,11 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Research & Study', href: '#research' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Services', href: 'https://dikaiosune.in/services/' },
+    { name: 'Research & Study', href: 'https://dikaiosune.in/research-study/' },
+    { name: 'About', href: 'https://dikaiosune.in/#about' },
+    { name: 'Contact', href: 'https://dikaiosune.in/#contact' },
+    { name: 'Mega Project', href: '#', isCurrent: true }
   ];
 
   return (
@@ -26,8 +27,12 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
       <nav className={`bg-forest text-cream transition-all duration-300 ${isScrolled ? 'shadow-xl py-3' : 'py-4'}`}>
         <div className="max-w-[1200px] mx-auto px-6 sm:px-10 flex items-center justify-between gap-6">
           
-          {/* Logo & Brand Wordmark */}
-          <a href="#" className="flex items-center gap-3.5 group shrink-0">
+          {/* Logo & Brand Wordmark - Redirects to main domain */}
+          <a
+            href="https://dikaiosune.in/"
+            className="flex items-center gap-3.5 group shrink-0"
+            title="Dikaiosune — Main Website"
+          >
             <BrandSeal size={36} className="shrink-0 transition-transform duration-300 group-hover:scale-105" />
             <div className="shrink-0">
               <div className="font-serif text-2xl font-semibold tracking-wide text-white leading-none whitespace-nowrap">
@@ -39,13 +44,18 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
             </div>
           </a>
 
-          {/* Desktop Nav Links - Clean, single-line, perfectly spaced */}
+          {/* Desktop Nav Links */}
           <ul className="hidden lg:flex items-center gap-7 text-[15px] font-medium text-cream/85">
             {navLinks.map((link) => (
-              <li key={link.href} className="shrink-0">
+              <li key={link.name} className="shrink-0">
                 <a
                   href={link.href}
-                  className="whitespace-nowrap hover:text-white transition-colors duration-200 py-1"
+                  className={`whitespace-nowrap transition-colors duration-200 py-1 ${
+                    link.isCurrent
+                      ? 'text-white font-semibold border-b-2 border-harvest-gold pb-0.5'
+                      : 'hover:text-white text-cream/85'
+                  }`}
+                  aria-current={link.isCurrent ? 'page' : undefined}
                 >
                   {link.name}
                 </a>
@@ -87,10 +97,15 @@ export default function Navbar({ onOpenPartnerModal, onOpenAdmin }) {
           <div className="lg:hidden border-t border-forest-light/60 bg-forest-dark px-6 pt-4 pb-6 space-y-2 mt-3 animate-fadeIn">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2.5 rounded-lg text-base font-medium text-cream hover:bg-forest hover:text-white transition"
+                className={`block px-3 py-2.5 rounded-lg text-base font-medium transition ${
+                  link.isCurrent
+                    ? 'bg-forest-light text-harvest-gold font-semibold'
+                    : 'text-cream hover:bg-forest hover:text-white'
+                }`}
+                aria-current={link.isCurrent ? 'page' : undefined}
               >
                 {link.name}
               </a>
